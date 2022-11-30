@@ -1,0 +1,16 @@
+{
+  "environments": [
+    {
+      "environmentName": "local",
+      "port": 3000,
+      "url": "127.0.0.1",
+      "production": false
+    },
+    {
+      "environmentName": "prod",
+      "port": 3000,
+      "url": "127.0.0.1",
+      "production": true
+    }
+  ]
+}

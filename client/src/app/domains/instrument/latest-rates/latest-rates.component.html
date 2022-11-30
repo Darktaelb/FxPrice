@@ -1,0 +1,31 @@
+<section class="mat-elevation-z8" tabindex="0">
+    <table mat-table [dataSource]="instrumentRates">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let instrumentRate"> {{instrumentRate.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="instrument">
+        <th mat-header-cell *matHeaderCellDef> Instrument </th>
+        <td mat-cell *matCellDef="let instrumentRate"> {{instrumentRate.instrument}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="bid">
+        <th mat-header-cell *matHeaderCellDef> Bid </th>
+        <td mat-cell *matCellDef="let instrumentRate"> {{instrumentRate.bid}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="ask">
+        <th mat-header-cell *matHeaderCellDef> Ask </th>
+        <td mat-cell *matCellDef="let instrumentRate"> {{instrumentRate.ask}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="timestamp">
+        <th mat-header-cell *matHeaderCellDef> Timestamp </th>
+        <td mat-cell *matCellDef="let instrumentRate"> {{instrumentRate.timestamp}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </section>

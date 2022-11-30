@@ -1,0 +1,9 @@
+.grid-container-instrument {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border: 1px solid;
+}
+
+.grid-container-instrument div{
+    text-align: center;
+}
