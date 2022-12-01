@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: 'instrument/rate',
     loadChildren: () =>
-      import('./domains/instrument/rate.module').then((m) => m.RateModule),
+      import('./domains/instrument/rate/rate.module').then((m) => m.RateModule),
   },
   {
     path: '**',

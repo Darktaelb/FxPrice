@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
-import { firstValueFrom } from 'rxjs';
+import { first } from 'rxjs';
 import { InstrumentRateUpdateEvent } from '../models/instrument-rate-update.event';
 import { InstrumentRateModel } from '../models/rate.model';
 import { InstrumentRateService } from '../rate.service';
@@ -21,9 +21,13 @@ export class LatestRatesComponent implements OnInit, OnDestroy {
   async ngOnInit() {
     this.socket.connect();
 
-    this.instrumentRates = await firstValueFrom(
-      this.instrumentRateService.getLatests()
-    );
+    this.instrumentRateService
+      .getLatests()
+      .pipe(first())
+      .subscribe({
+        next: (nextValue) => (this.instrumentRates = nextValue),
+        error: (error) => console.log(error),
+      });
 
     this.socket.on('rateUpdate', (event: InstrumentRateUpdateEvent) =>
       this.onInstrumentRateUpdate(event)
